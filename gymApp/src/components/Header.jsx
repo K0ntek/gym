@@ -3,7 +3,7 @@ import { TypeAnimation } from 'react-type-animation';
 
 const Header = () => {
   return (
-    <div className=' h-screen my-10 z-[99]' id='header'>
+    <div className=' my-10 z-[99]' id='header'>
         <div className=' p-6'>
              <TypeAnimation
                 sequence={[

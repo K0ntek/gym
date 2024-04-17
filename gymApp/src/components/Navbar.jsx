@@ -3,6 +3,9 @@ import { IoStatsChart, IoAdd} from "react-icons/io5";
 import { CgFormatLeft } from "react-icons/cg";
 import { GrHomeOption } from "react-icons/gr";
 import { Link } from 'react-scroll';
+import { RiMenu4Line } from "react-icons/ri";
+import { IoMdClose } from "react-icons/io";
+import gsap from 'gsap/all';
 
 const Navbar = () => {
 
@@ -29,16 +32,32 @@ const Navbar = () => {
         },
     ]
 
+    const toggleNavbar =()=>{
+        gsap.to('.navIcon', {display:'none', duration:.2})
+        gsap.to('.closeBar', {display:'block', delay:.2})
+        gsap.to('.navbar', {top:0, duration:.5})
+    }
+
+    const hideNavbar=()=>{
+        gsap.to('.closeBar', {display:'none', duration:.2})
+        gsap.to('.navIcon', {display:'block', delay:.2})
+        gsap.to('.navbar', {top:'-100%', duration:1})
+    }
+
   return (
-    <div className=' w-full  text-white sticky top-[5%]'>
-        <div className=' mx-auto text-center space-y-[-10px]'>
-                <div className=' flex mx-auto text-center w-fit'>
+    <div className=' w-full  text-white fixed top-0 lg:sticky lg:top-[5%] bg-[#090909] h-[70px]'>
+        <div className='relative'>
+            <RiMenu4Line className='navIcon text-4xl absolute right-2 top-2 lg:hidden' onClick={toggleNavbar}/>
+            <IoMdClose className='closeBar absolute top-2 right-2 text-white text-3xl hover:text-[#7a3d17] hidden' onClick={hideNavbar}/>
+        </div>
+        <div className=' mx-auto text-center space-y-[-10px] z-[99] static'>
+                <div className=' flex mx-auto text-center w-fit '>
                         <div className='w-6 h-[2px] bg-[#7a3d17] mt-[17px]'></div>  
                     <h1 className=' text-2xl'>GYM</h1>
                         <div className='w-6 h-[2px] bg-[#7a3d17] mt-[17px]'></div>
                 </div>
 
-            <h1 className='text-xl text-[#7a3d17]'>TRAINING</h1>
+            <h1 className='text-xl text-[#7a3d17] '>TRAINING</h1>
 
                 <div className='flex mx-auto text-center w-fit'>
                     <div className='w-7 h-[1px] bg-[#7a3d17] mt-[12px]'></div>
@@ -46,7 +65,9 @@ const Navbar = () => {
                     <div className='w-7 h-[1px] bg-[#7a3d17] mt-[12px]'></div>
                 </div>
         </div>
-        {navElements.map((element, i)=>{
+        <div className='navbar fixed lg:static top-[-100%] w-full bg-[#090909] z-[90] mt-[70px]'>
+           <div className=''>
+             {navElements.map((element, i)=>{
             return(
                 <Link key={i} to={element.link} smooth={true}>
                     <div className=' text-white font-inter text-xl py-3 ps-3 flex space-x-2 group hover:bg-white/20 group cursor-pointer'>
@@ -56,8 +77,10 @@ const Navbar = () => {
                 </Link>
             )
         })}
+           </div>
+        </div>
 
-        <div className=' flex space-x-3 ps-2 mt-6'>
+        <div className=' flex space-x-3 ps-2 lg:mt-6 absolute top-2 left-0 lg:static'>
             <div className=' w-[50px] h-[50px] aspect-square rounded-full bg-white'></div>
            <div className=' h-[50px]'>
              <p className=' text-xl relative top-[50%] translate-y-[-50%]'>User</p>
