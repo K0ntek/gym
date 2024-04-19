@@ -114,7 +114,7 @@ const Stats = () => {
 
             <div className=' pb-10'>
                     <div className='flex flex-wrap gap-7 justify-center'>
-                            <div className='bg-[#111] text-white rounded-3xl aspect-video relative cursor-pointer w-[80%] sm:w-[30%] min-w-[300px] hover:bg-[#0c0c0c] hover:mt-[-15px] hover:mb-[15px] transition-all duration-150'>
+                            <div className=' z-[90] bg-[#111] text-white rounded-3xl aspect-video relative cursor-pointer w-[80%] sm:w-[30%] min-w-[300px] hover:bg-[#0c0c0c] hover:mt-[-15px] hover:mb-[15px] transition-all duration-150'>
                         <CiClock2 className=' absolute right-5 top-2 text-3xl bg-[#111] text-white p-1 rounded-lg'/>
                         <div className='text-center  relative top-[50%] translate-y-[-50%]'>
                             <h1 className='text-3xl xl:text-4xl font-[300]'>Obecna godzina:</h1>
@@ -122,7 +122,7 @@ const Stats = () => {
                         </div>
                         </div>
 
-                        <div className='text-white bg-[#a55a27] p-4 aspect-video rounded-3xl cursor-pointer relative w-[80%] sm:w-[30%] min-w-[300px] hover:mt-[-15px] hover:mb-[15px] transition-all duration-150'>
+                        <div className=' z-[90] text-white bg-[#a55a27] p-4 aspect-video rounded-3xl cursor-pointer relative w-[80%] sm:w-[30%] min-w-[300px] hover:mt-[-15px] hover:mb-[15px] transition-all duration-150'>
                         <LiaTasksSolid className=' absolute right-5 top-2 text-4xl text-[#white] p-1 rounded-lg'/>
                         <div className=' relative top-[50%] translate-y-[-50%] space-y-3'>
                             <h1 className=' text-3xl xl:text-4xl text-center mt-4 font-[300]'> ćwiczenia</h1>
@@ -130,7 +130,7 @@ const Stats = () => {
                         </div>
                         </div>
 
-                        <div className='text-black bg-[#e2e2e2] p-4 aspect-video rounded-3xl cursor-pointer relative w-[80%] sm:w-[30%] min-w-[300px] hover:mt-[-15px] hover:mb-[15px] transition-all duration-150'>
+                        <div className=' z-[90] text-black bg-[#e2e2e2] p-4 aspect-video rounded-3xl cursor-pointer relative w-[80%] sm:w-[30%] min-w-[300px] hover:mt-[-15px] hover:mb-[15px] transition-all duration-150'>
                         <MdDone  className=' absolute right-5 top-2 text-4xl text-[#111] p-1 rounded-lg'/>
                         <div className=' relative top-[50%] translate-y-[-50%] space-y-3'>
                             <h1 className=' text-3xl xl:text-4xl text-center mt-4'> Ukończone</h1>
@@ -158,7 +158,7 @@ const Stats = () => {
                 setDay={setDay}
                 />
 
-                        <div className=' py-6 bg-[#e2e2e2] rounded-3xl w-[95%] mx-auto my-6' id="script">
+                        <div className=' py-6 bg-[#e2e2e2] rounded-3xl w-[95%] mx-auto mt-6' id="script">
                             <h1 className=' text-5xl font-[600] m-6'>Twój plan treningowy</h1>
                             <div className=' grid md:grid-cols-2'>
                             {weekDays.map((dayElement, i)=>{

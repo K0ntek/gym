@@ -8,6 +8,7 @@ import Stats from './components/Stats'
 import Footer from './components/Footer'
 import Add from './components/Add'
 import Background from './components/Background'
+import Summary from './components/Summary'
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
         <div className=' bg-[#f3f3f3] rounded-3xl w-full'>
           <Header/>
           <Stats/>
-          {/* <Summary/> */}
+          <Summary/>
         </div>
       </div>
       <Footer/>

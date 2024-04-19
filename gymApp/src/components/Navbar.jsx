@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { IoStatsChart, IoAdd} from "react-icons/io5";
 import { CgFormatLeft } from "react-icons/cg";
 import { GrHomeOption } from "react-icons/gr";
@@ -44,11 +44,29 @@ const Navbar = () => {
         gsap.to('.navbar', {top:'-100%', duration:1})
     }
 
+    if (window.innerWidth > 1024) {
+        gsap.to('.navIcon', {display:'none', duration:.2})
+        gsap.to('.closeBar', {display:'none', duration:.2})
+      } else {
+        gsap.to('.navIcon', {display:'block', delay:.2})
+      }
+
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const setWindowDimensions = () => {
+        setWindowWidth(window.innerWidth);
+    };
+    useEffect(() => {
+        window.addEventListener('resize', setWindowDimensions);
+        return () => {
+        window.removeEventListener('resize', setWindowDimensions);
+        };
+    }, []);
+
   return (
-    <div className=' w-full  text-white fixed top-0 lg:sticky lg:top-[5%] bg-[#090909] h-[70px]'>
+    <div className=' w-full  text-white fixed top-0 lg:sticky lg:top-[5%] bg-[#090909] z-[99] rounded-b-xl'>
         <div className='relative'>
-            <RiMenu4Line className='navIcon text-4xl absolute right-2 top-2 lg:hidden' onClick={toggleNavbar}/>
-            <IoMdClose className='closeBar absolute top-2 right-2 text-white text-3xl hover:text-[#7a3d17] hidden' onClick={hideNavbar}/>
+            <RiMenu4Line className='navIcon text-4xl absolute right-2 top-2 lg:hidden lg:text-[#090909]' onClick={toggleNavbar}/>
+            <IoMdClose className='closeBar absolute top-2 right-2 text-white text-3xl hover:text-[#7a3d17] hidden lg:text-[#090909]' onClick={hideNavbar}/>
         </div>
         <div className=' mx-auto text-center space-y-[-10px] z-[99] static'>
                 <div className=' flex mx-auto text-center w-fit '>
@@ -65,7 +83,7 @@ const Navbar = () => {
                     <div className='w-7 h-[1px] bg-[#7a3d17] mt-[12px]'></div>
                 </div>
         </div>
-        <div className='navbar fixed lg:static top-[-100%] w-full bg-[#090909] z-[90] mt-[70px]'>
+        <div className='navbar fixed lg:static top-[-100%] w-full bg-[#090909] z-[90] mt-[60px]'>
            <div className=''>
              {navElements.map((element, i)=>{
             return(
@@ -80,10 +98,10 @@ const Navbar = () => {
            </div>
         </div>
 
-        <div className=' flex space-x-3 ps-2 lg:mt-6 absolute top-2 left-0 lg:static'>
-            <div className=' w-[50px] h-[50px] aspect-square rounded-full bg-white'></div>
+        <div className=' flex space-x-3 ps-2 lg:mt-6 absolute top-0 left-0 lg:static lg:hover:bg-white/20 py-3 cursor-pointer'>
+            <div className=' w-[35px] lg:w-[50px] h-[35px] lg:h-[50px] aspect-square rounded-full bg-white'></div>
            <div className=' h-[50px]'>
-             <p className=' text-xl relative top-[50%] translate-y-[-50%]'>User</p>
+             <p className=' text-xl relative top-[50%] translate-y-[-50%] hidden lg:block'>User</p>
            </div>
         </div>
     </div>

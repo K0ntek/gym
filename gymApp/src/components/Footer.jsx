@@ -21,7 +21,7 @@ const Footer = () => {
 
   return (
     <>
-    <div className=' grid md:grid-cols-3 py-10'>
+    <div className=' grid md:grid-cols-3 py-10 space-y-3 lg:space-y-0'>
           <div className=' mx-auto text-center space-y-[-10px]'>
                 <div className=' flex mx-auto text-center w-fit text-white'>
                         <div className='w-6 h-[2px] bg-[#7a3d17] mt-[17px]'></div>  
@@ -38,8 +38,11 @@ const Footer = () => {
                 </div>
         </div>
 
-        <div>
-
+        <div className=' w-fit mx-auto'>
+          <h1 className=' text-3xl text-[#7a3d17] font-[200] text-center mb-2'>Zaglądnij!</h1>
+          <p className=' text-[#fafafa] hover:text-[silver] cursor-pointer text-sm py-1'>PLANY TRENINGOWE</p>
+          <p className=' text-[#fafafa] hover:text-[silver] cursor-pointer text-sm py-1'>KALKULATOR BMI</p>
+          <p className=' text-[#fafafa] hover:text-[silver] cursor-pointer text-sm py-1'>OBLICZANIE KALORII</p>
         </div>
 
         <div>
@@ -47,7 +50,7 @@ const Footer = () => {
           <div className=' flex space-x-3 mt-3 text-center justify-center'>
               {socials.map((element, i)=>{
                 return(
-                  <div className=' text-white text-2xl text-center'>
+                  <div className=' text-white text-2xl text-center hover:text-[silver]'>
                     <p>{element.icon}</p>
                   </div>
                 )
